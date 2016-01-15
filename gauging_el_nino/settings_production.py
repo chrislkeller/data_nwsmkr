@@ -8,7 +8,9 @@ import pytz
 from pytz import timezone
 import yaml
 
-if os.environ['CONFIG_PATH'] == '%s_PRODUCTION' % ('gauging_el_nino'.upper()):
+print os.environ
+
+if os.environ["HOME"] == "/home/chriskeller":
     CONFIG_FILE = os.path.join(BASE_DIR, 'config.yml')
 else:
     CONFIG_FILE = os.path.join(BASE_DIR, 'development.yml')
