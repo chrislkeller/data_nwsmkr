@@ -116,8 +116,7 @@ Available Fabric Commands
         print 'SECRET_KEY = "%s"' % key
 
 * ```deploy```
-
-        Xxxxx
+        Runs ```git pull origin``` on the server to pull the latest commits from the github repo.
 
 * ```bootstrap```: Attempts to scaffold the project by:
         * Creating virtualenv
