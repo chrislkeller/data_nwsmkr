@@ -45,6 +45,7 @@ coverage.xml
 docs/_build/
 
 # added by me
+._.DS_Store
 .DS_Store
 */public/*
 *.pyc
