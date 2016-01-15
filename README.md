@@ -66,7 +66,7 @@ Available Fabric Commands
 
 **Development Functions**
 
-* ```run```: shortcut for base manage.py function to launch the Django development server
+* ```_run```: shortcut for base manage.py function to launch the Django development server
 
         local("python manage.py runserver")
 
