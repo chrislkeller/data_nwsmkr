@@ -86,6 +86,10 @@ INSTALLED_APPS = [
     # 'django.contrib.flatpages',
     # 'django.contrib.redirects',
     # 'django.contrib.humanize',
+    'massadmin',
+    'django_admin_bootstrapped',
+    'tastypie',
+    'bakery',
 ]
 
 # A sample logging configuration. The only tangible logging
