@@ -46,8 +46,8 @@ Quickstart
 
 ----
 
-Monthly Process To Update Data and Build the Project
-====================================================
+Process To Update Data
+======================
 
 * Run the tests
 
@@ -115,17 +115,9 @@ Available Fabric Commands
         key = ''.join(random.choice(allowed_chars) for i in range(length))
         print 'SECRET_KEY = "%s"' % key
 
-* ```build```: Activates the django-bakery script to build the views specified in ```settings_development.py```
+* ```deploy```
 
-        local("python manage.py build")
-
-* ```buildserver```: Activates the django-bakery development server
-
-        local("python manage.py buildserver")
-
-* ```move```
-
-        local("python manage.py move_baked_files")
+        Xxxxx
 
 * ```bootstrap```: Attempts to scaffold the project by:
         * Creating virtualenv
