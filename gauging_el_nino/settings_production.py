@@ -8,8 +8,6 @@ import pytz
 from pytz import timezone
 import yaml
 
-print os.environ
-
 if os.environ["HOME"] == "/home/chriskeller":
     CONFIG_FILE = os.path.join(BASE_DIR, 'config.yml')
 else:
