@@ -12,6 +12,7 @@ import os
 from django.core.wsgi import get_wsgi_application
 
 os.environ["CONFIG_PATH"] = "%s_PRODUCTION" % ("gauging_el_nino".upper())
+
 os.environ.setdefault("DJANGO_SETTINGS_MODULE", "gauging_el_nino.settings_production")
 
 application = get_wsgi_application()
