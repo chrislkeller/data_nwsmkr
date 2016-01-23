@@ -1,5 +1,7 @@
-from tastypie.resources import ModelResource
 from tastypie import fields
+from tastypie.resources import ModelResource
+from tastypie.authentication import ApiKeyAuthentication
+from tastypie.constants import ALL, ALL_WITH_RELATIONS
 from tastypie.serializers import Serializer
 from la_rain_gauges.models import RainGauge, RainGaugeReading
 
@@ -22,9 +24,13 @@ class RainGaugeResource(ModelResource):
             "station_id",
             "station_name",
         ]
+        filtering = {
+            "calculated_id": ALL,
+        }
         allowed_methods = ['get']
         serializer = Serializer(formats=['json'])
         limit = 275
+        authentication = ApiKeyAuthentication()
 
 
 class RainGaugeReadingResource(ModelResource):
@@ -43,3 +49,4 @@ class RainGaugeReadingResource(ModelResource):
         allowed_methods = ['get']
         serializer = Serializer(formats=['json'])
         limit = 50
+        authentication = ApiKeyAuthentication()
