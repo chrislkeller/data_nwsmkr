@@ -76,6 +76,7 @@ TEMPLATES = [
 ]
 
 INSTALLED_APPS = [
+    'django_admin_bootstrapped',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -87,7 +88,6 @@ INSTALLED_APPS = [
     # 'django.contrib.redirects',
     # 'django.contrib.humanize',
     'massadmin',
-    'django_admin_bootstrapped',
     'tastypie',
     'bakery',
 ]
