@@ -58,3 +58,4 @@ SCRATCHPAD.md
 config.yml
 development.yml
 BAK_*
+fabfile.py
