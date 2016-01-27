@@ -1,0 +1,17 @@
+{% extends "infant_tracker/base.html" %}
+
+{% block breadcrumb_block %}
+    <ol class="breadcrumb">
+        <li><a href="{% url 'infant_tracker:event-index' %}">Home</a></li>
+        <li class="active">Create Event</li>
+    </ol>
+{% endblock %}
+
+{% block display_block %}
+    <h1>Create Event</h1>
+    <form method="POST" action="">
+        {% csrf_token %}
+        {{ form.as_ul }}
+        <input class="btn btn-success btn-lg" role="button" type="submit" value="Submit &raquo;" />
+    </form>
+{% endblock %}

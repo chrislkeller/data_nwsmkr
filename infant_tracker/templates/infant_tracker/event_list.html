@@ -1,0 +1,25 @@
+{% extends "infant_tracker/base.html" %}
+
+{% block breadcrumb_block %}
+    <ol class="breadcrumb">
+        <li><a href="{% url 'infant_tracker:event-index' %}">Home</a></li>
+    </ol>
+{% endblock %}
+
+{% block display_block %}
+    <h1>Tracking Estelle</h1>
+    <ul>
+        {% for event in object_list %}
+            <li>{{ event.created_at }} - <a href="{% url 'infant_tracker:event-update' event.id %}">{{ event.get_event_type_display }}</a></li>
+            {% if event.event_notes %}
+                <ul>
+                    <li>{{ event.event_notes }}</li>
+                </ul>
+            {% else %}
+            {% endif %}
+        {% empty %}
+            <li>No events yet.</li>
+        {% endfor %}
+    </ul>
+    <p><a class="btn btn-success btn-lg" role="button" href="{% url 'infant_tracker:event-add' %}">Add Event &raquo;</a></p>
+{% endblock %}

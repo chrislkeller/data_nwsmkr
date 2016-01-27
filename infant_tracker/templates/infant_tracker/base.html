@@ -1,0 +1,75 @@
+{% load staticfiles %}
+
+<!DOCTYPE html>
+
+<!-- begin doc -->
+<html lang="en">
+
+    <!-- begin header -->
+    <head>
+
+        <!-- begin meta -->
+
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <!-- end meta -->
+
+        <!-- begin css -->
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" />
+        <!-- end css -->
+
+        <!-- begin base scripts -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+        <!-- end base scripts -->
+
+    </head>
+    <!-- end header -->
+
+    <!-- begin body -->
+    <body class="minimal">
+        <nav class="navbar navbar-inverse navbar-fixed-top"></nav>
+        <div class="jumbotron"></div>
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                    {% block breadcrumb_block %}{% endblock %}
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6 col-md-offset-4">
+                    {% block display_block %}{% endblock %}
+                </div>
+            </div>
+            <!--
+            <div class="row">
+                <div class="col-md-4">
+                    <h2>Heading</h2>
+                    <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
+                    <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
+                </div>
+                <div class="col-md-4">
+                    <h2>Heading</h2>
+                    <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
+                    <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
+                </div>
+                <div class="col-md-4">
+                    <h2>Heading</h2>
+                    <p>Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula porta felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
+                    <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
+                </div>
+            </div>
+            -->
+            <hr>
+            <footer>
+                <p>&copy; {% now "Y" %} - Chris L Keller</p>
+            </footer>
+        </div>
+
+        <!-- begin additional scripts -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/js/bootstrap.min.js"></script>
+        <!-- end additional scripts -->
+
+    </body>
+    <!-- end body -->
+
+</html>
+<!-- end document -->

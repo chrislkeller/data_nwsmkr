@@ -1,0 +1,16 @@
+{% extends "infant_tracker/base.html" %}
+
+{% block breadcrumb_block %}
+    <ol class="breadcrumb">
+        <li><a href="{% url 'infant_tracker:event-index' %}">Home</a></li>
+        <li class="active">Delete {{ object.id }}</li>
+    </ol>
+{% endblock %}
+
+{% block display_block %}
+    <h1>Delete {{ event.get_event_type_display }}</h1>
+    <form method="POST" action="{% url 'infant_tracker:event-delete' event.id %}">
+       {% csrf_token %}
+       <input class="btn btn-danger btn-lg" role="button" type="submit" value="Delete &raquo;" />
+    </form>
+{% endblock %}
