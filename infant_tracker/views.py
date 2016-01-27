@@ -11,7 +11,12 @@ from django import forms
 from .models import Event
 import os
 import calculate
+import time
 import datetime
+from datetime import tzinfo
+import pytz
+from pytz import timezone
+from dateutil import parser
 import logging
 import yaml
 import calendar
@@ -21,8 +26,22 @@ logger = logging.getLogger('data_nwsmkr')
 
 class EventIndex(ListView):
     model = Event
+
     def get_context_data(self, **kwargs):
         context = super(EventIndex, self).get_context_data(**kwargs)
+        context['object_list'] = Event.objects.order_by('-created_at')
+
+        # if i want to round to nearest five minute increment
+        test_time = context['object_list'][0].created_at
+        test_time += datetime.timedelta(minutes=5)
+        test_time -= datetime.timedelta(minutes=test_time.minute % 5, seconds=test_time.second, microseconds=test_time.microsecond)
+
+        # try to display elapsed time
+        current_time = pytz.utc.localize(datetime.datetime.utcnow())
+        current_event = context['object_list'][0].created_at
+        previous_event = context['object_list'][1].created_at
+        elapsed_time = current_time - current_event
+        context['elapsed_time'] = elapsed_time
         return context
 
 

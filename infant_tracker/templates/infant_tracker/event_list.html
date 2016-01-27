@@ -8,6 +8,9 @@
 
 {% block display_block %}
     <h1>Tracking Estelle</h1>
+
+    <h6>{{ elapsed_time }}</h6>
+
     <ul>
         {% for event in object_list %}
             <li>{{ event.created_at }} - <a href="{% url 'infant_tracker:event-update' event.id %}">{{ event.get_event_type_display }}</a></li>
