@@ -36,6 +36,8 @@ urlpatterns = [
     # tastypie api
     url(r'^api/', include(v1_api.urls)),
 
+    url(r"^track-estelle/", include("infant_tracker.urls")),
+
     # batch edit in admin
     url(r"^admin/", include("massadmin.urls")),
 ]
