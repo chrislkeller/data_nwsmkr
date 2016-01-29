@@ -52,14 +52,17 @@ def main_page(request):
                     if evaluated_distance < 10:
                         gauge.distance = float("{0:.2f}".format(evaluated_distance))
                         list_of_nearby_gauges.append(gauge)
-                message = "Hello %s. Here are the rain gauges within 10 miles of the %s\n" % (user_name, zip_code)
-                for item in list_of_nearby_gauges:
-                    message += "\t* %s - %s miles\n" % (item.station_name, item.distance)
-                    gauge = RainGauge.objects.get(id=item.id)
-                    gaugereadings = gauge.raingaugereading_set.order_by("-reading_date_time")
-                    gauge_accumulation = gaugereadings[0].reading_accumulated
-                    gauge_reading = gaugereadings[0].reading_date_time.strftime("%I:%M %p %Z on %a, %b %d, %Y")
-                    message += "\t\t* %s inches as of %s\n" % (gauge_accumulation, gauge_reading)
+                if len(list_of_nearby_gauges) == 0:
+                    message = "Hello %s. We couldn't retrieve any data for you"
+                else:
+                    message = "Hello %s. Here are the rain gauges within 10 miles of the %s\n" % (user_name, zip_code)
+                    for item in list_of_nearby_gauges:
+                        message += "\t* %s - %s miles\n" % (item.station_name, item.distance)
+                        gauge = RainGauge.objects.get(id=item.id)
+                        gaugereadings = gauge.raingaugereading_set.order_by("-reading_date_time")
+                        gauge_accumulation = gaugereadings[0].reading_accumulated
+                        gauge_reading = gaugereadings[0].reading_date_time.strftime("%I:%M %p %Z on %a, %b %d, %Y")
+                        message += "\t\t* %s inches as of %s\n" % (gauge_accumulation, gauge_reading)
             else:
                 message = "Hello %s. We couldn't retrieve any data for you"
             return StreamingHttpResponse(message)
