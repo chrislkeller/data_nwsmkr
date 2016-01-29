@@ -42,6 +42,14 @@ class EventIndex(ListView):
         previous_event = context['object_list'][1].created_at
         elapsed_time = current_time - current_event
         context['elapsed_time'] = elapsed_time
+
+
+        context['last_bottle'] = Event.objects.order_by('-created_at').filter(event_type="BTL")
+
+        logger.debug(context['last_bottle'][0].created_at)
+
+
+
         return context
 
 
