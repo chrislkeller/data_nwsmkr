@@ -23,7 +23,7 @@ from django.contrib import admin
 from tastypie.api import Api
 from data_nwsmkr.api import RainGaugeResource, RainGaugeReadingResource
 
-logger = logging.getLogger("gauging_rainfall")
+logger = logging.getLogger('data_nwsmkr')
 
 # invoke the api
 v1_api = Api(api_name='v1')
