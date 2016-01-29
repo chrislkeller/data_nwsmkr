@@ -31,12 +31,14 @@ v1_api.register(RainGaugeResource())
 v1_api.register(RainGaugeReadingResource())
 
 urlpatterns = [
-    url(r"^admin/", include(admin.site.urls)),
+    url(r"^admin/?", include(admin.site.urls)),
 
     # tastypie api
-    url(r'^api/', include(v1_api.urls)),
+    url(r'^api/?', include(v1_api.urls)),
 
-    url(r"^track-estelle/", include("infant_tracker.urls")),
+    url(r"^track-estelle/?", include("infant_tracker.urls")),
+
+    url(r"^gauging-el-nino/?", include("la_rain_gauges.urls")),
 
     # batch edit in admin
     url(r"^admin/", include("massadmin.urls")),
