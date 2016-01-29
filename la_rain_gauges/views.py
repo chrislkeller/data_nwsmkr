@@ -62,7 +62,7 @@ def main_page(request):
                         gaugereadings = gauge.raingaugereading_set.order_by("-reading_date_time")
                         gauge_accumulation = gaugereadings[0].reading_accumulated
                         gauge_reading = gaugereadings[0].reading_date_time.strftime("%I:%M %p %Z on %a, %b %d, %Y")
-                        message += "\t\t* %s inches as of %s\n" % (gauge_accumulation, gauge_reading)
+                        message += "\t\t* %s inches accumulated as of %s\n" % (gauge_accumulation, gauge_reading)
             else:
                 message = "Hello %s. We couldn't retrieve any data for you"
             return StreamingHttpResponse(message)
