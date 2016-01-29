@@ -53,7 +53,7 @@ def main_page(request):
                         gauge.distance = float("{0:.2f}".format(evaluated_distance))
                         list_of_nearby_gauges.append(gauge)
                 if len(list_of_nearby_gauges) == 0:
-                    message = "Hello %s. We couldn't retrieve any data for you"
+                    message = "Hello %s. We couldn't retrieve any data for you about the %s" % (user_name, zip_code)
                 else:
                     message = "Hello %s. Here are the rain gauges within 10 miles of the %s\n" % (user_name, zip_code)
                     for item in list_of_nearby_gauges:
@@ -64,9 +64,9 @@ def main_page(request):
                         gauge_reading = gaugereadings[0].reading_date_time.strftime("%I:%M %p %Z on %a, %b %d, %Y")
                         message += "\t\t* %s inches accumulated as of %s\n" % (gauge_accumulation, gauge_reading)
             else:
-                message = "Hello %s. We couldn't retrieve any data for you"
+                message = "Hello %s. We couldn't retrieve any data for you about the %s" % (user_name, zip_code)
             return StreamingHttpResponse(message)
         else:
-            return StreamingHttpResponse('we could not handle your request')
+            return StreamingHttpResponse('We could not handle your request')
     else:
-        return StreamingHttpResponse('we could not handle your request')
+        return StreamingHttpResponse('We could not handle your request')
