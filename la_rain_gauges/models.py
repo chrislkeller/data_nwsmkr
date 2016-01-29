@@ -49,7 +49,7 @@ class RainGaugeReading(models.Model):
     reading_accumulated = models.FloatField("Rainfall Accumulation", null=True, blank=True)
 
     def __unicode__(self):
-        return self.reading_date_time
+        return self.reading_date_time.strftime("%Y-%m-%d %H:%M")
 
     def save(self, *args, **kwargs):
         super(RainGaugeReading, self).save(*args, **kwargs)
