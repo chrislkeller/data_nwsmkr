@@ -26,7 +26,7 @@ logger = logging.getLogger('data_nwsmkr')
 
 def main_page(request):
     if request.method=='GET':
-        token = request.GET['token']
+        token = request.GET.get('token', False)
         if token == 'QHo1Fl7oVvh4QTIJLZkbCet7':
             user_name = request.GET.get('user_name', '')
             zip_code = request.GET.get('text', '')
@@ -67,6 +67,7 @@ def main_page(request):
                 message = "Hello %s. We couldn't retrieve any data for you about the %s" % (user_name, zip_code)
             return StreamingHttpResponse(message)
         else:
-            return StreamingHttpResponse('We could not handle your request')
+            # rain_gauges = RainGauge.objects.filter(gauge_type="automatic")
+            return StreamingHttpResponse('Your request failed to include the Slack token')
     else:
         return StreamingHttpResponse('We could not handle your request')
