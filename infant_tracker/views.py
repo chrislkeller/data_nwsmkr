@@ -58,7 +58,7 @@ class EventForm(forms.ModelForm):
 
         widgets = {
             'event_type': forms.RadioSelect,
-            'created_at': forms.SplitDateTimeWidget,
+            # 'created_at': forms.SplitDateTimeWidget,
         }
 
 
