@@ -36,7 +36,7 @@ urlpatterns = [
     # tastypie api
     url(r'^api/?', include(v1_api.urls)),
 
-    url(r"^track-estelle/?", include("infant_tracker.urls")),
+    url(r"^track-infant/?", include("infant_tracker.urls")),
 
     url(r"^gauging-el-nino/?", include("la_rain_gauges.urls")),
 
