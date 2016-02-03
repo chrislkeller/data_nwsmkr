@@ -34,8 +34,8 @@ class NearestRainGauges(ListView):
     def get(self, request):
         if request.method=='GET':
             token = request.GET.get('token', False)
-            if token == 'QHo1Fl7oVvh4QTIJLZkbCet7':
-            # if token == False:
+            # if token == 'QHo1Fl7oVvh4QTIJLZkbCet7':
+            if token == False:
                 user_name = request.GET.get('user_name', '')
                 zip_code = request.GET.get('text', None)
                 task = FunctionalTasks()
@@ -69,7 +69,8 @@ class NearestRainGauges(ListView):
                 gauge_reading =task._localize_utc_time(gaugereadings[0].reading_date_time)
                 string_gauge_reading = gauge_reading.strftime("%-I:%M %p %Z on %a, %b %-d, %Y")
                 message += "\t\t* %s inches accumulated between Oct. 1 and %s\n" % (gauge_accumulation, string_gauge_reading)
-                message += "https://maps.googleapis.com/maps/api/staticmap?key=AIzaSyCgh93OAbzooidV0OUpIOoc6kTxV5o69do&center=%s,%s&zoom=10&size=640x400&scale=2&maptype=roadmap&markers=color:red%7Clabel:%7C%s,%s" % (gauge.lat_converted, gauge.lng_converted, gauge.lat_converted, gauge.lng_converted)
+                image_link = "https://maps.googleapis.com/maps/api/staticmap?key=AIzaSyCgh93OAbzooidV0OUpIOoc6kTxV5o69do&center=%s,%s&zoom=15&size=640x400&scale=2&maptype=roadmap&markers=%s,%s\n" % (gauge.lat_converted, gauge.lng_converted, gauge.lat_converted, gauge.lng_converted)
+                message += image_link
         return message
 
 
