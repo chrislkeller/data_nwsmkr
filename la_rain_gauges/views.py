@@ -11,7 +11,6 @@ from .models import RainGauge, RainGaugeReading
 from googlegeocoder import GoogleGeocoder
 import calculate
 from haversine import haversine
-# import os
 import time
 import datetime
 from datetime import tzinfo
@@ -19,9 +18,6 @@ import pytz
 from pytz import timezone
 from dateutil import parser
 import logging
-# import yaml
-# import calendar
-# import math
 
 logger = logging.getLogger('data_nwsmkr')
 
@@ -35,7 +31,6 @@ class NearestRainGauges(ListView):
         if request.method=='GET':
             token = request.GET.get('token', False)
             if token == 'QHo1Fl7oVvh4QTIJLZkbCet7':
-            # if token == False:
                 user_name = request.GET.get('user_name', '')
                 zip_code = request.GET.get('text', None)
                 task = FunctionalTasks()
