@@ -34,8 +34,8 @@ class NearestRainGauges(ListView):
     def get(self, request):
         if request.method=='GET':
             token = request.GET.get('token', False)
-            # if token == 'QHo1Fl7oVvh4QTIJLZkbCet7':
-            if token == False:
+            if token == 'QHo1Fl7oVvh4QTIJLZkbCet7':
+            # if token == False:
                 user_name = request.GET.get('user_name', '')
                 zip_code = request.GET.get('text', None)
                 task = FunctionalTasks()
