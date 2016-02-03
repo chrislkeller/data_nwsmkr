@@ -61,9 +61,6 @@ class NearestRainGauges(ListView):
             message = "Hello %s. We couldn't retrieve any data for you about the %s" % (user_name, zip_code)
         else:
             message = "Hello %s. Here are the rain gauges within 10 miles of the %s\n" % (user_name, zip_code)
-
-            message += "https://maps.googleapis.com/maps/api/staticmap?key=AIzaSyCgh93OAbzooidV0OUpIOoc6kTxV5o69do&center=34.18555556,-118.1952778&zoom=15&size=640x400&scale=2&maptype=roadmap&markers=34.18555556,-118.1952778"
-
             for item in self.list_of_nearby_gauges:
                 message += "\t* %s - %s miles\n" % (item.station_name, item.distance)
                 gauge = RainGauge.objects.get(id=item.id)
