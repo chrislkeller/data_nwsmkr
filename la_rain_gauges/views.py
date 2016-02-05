@@ -64,9 +64,10 @@ class NearestRainGauges(ListView):
                 gauge_reading =task._localize_utc_time(gaugereadings[0].reading_date_time)
                 string_gauge_reading = gauge_reading.strftime("%-I:%M %p %Z on %a, %b %-d, %Y")
                 message += "\t\t* %s inches accumulated between Oct. 1 and %s\n" % (gauge_accumulation, string_gauge_reading)
-                message += "\t\t* This data comes from the Los Angeles County Department of Public Works Near Real-time Precipitation Map should be considered advisory. Visit http://www.ladpw.org/wrd/precip/ for more information."
                 # image_link = "https://maps.googleapis.com/maps/api/staticmap?key=AIzaSyCgh93OAbzooidV0OUpIOoc6kTxV5o69do&center=%s,%s&zoom=15&size=640x400&scale=2&maptype=roadmap&markers=%s,%s\n" % (gauge.lat_converted, gauge.lng_converted, gauge.lat_converted, gauge.lng_converted)
                 # message += "\t\t\t* %s" % (image_link)
+            message += "\n** This data comes from the Los Angeles County Department of Public Works Near Real-time Precipitation Map should be considered advisory. Visit http://www.ladpw.org/wrd/precip/ for more information. **\n"
+
         return message
 
 
