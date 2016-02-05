@@ -41,6 +41,7 @@ class NearestRainGauges(ListView):
                         nearby_gauge = task._assemble_list_of_nearby(this_location, gauge)
                         if nearby_gauge:
                             self.list_of_nearby_gauges.append(gauge)
+                    self.list_of_nearby_gauges = sorted(self.list_of_nearby_gauges, key=lambda x: x.distance, reverse=False)
                     message = self._create_response_message(task, user_name, zip_code)
                     return StreamingHttpResponse(message)
                 else:
